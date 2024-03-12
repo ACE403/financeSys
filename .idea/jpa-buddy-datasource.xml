@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="f1e6baff-5f38-46cf-9bc3-27de1f3c8421" name="financeSys" url="jdbc:mysql://localhost/financeSys?useSSL=false&amp;allowMultiQueries=true&amp;serverTimezone=UTC" driverClass="com.mysql.cj.jdbc.Driver" />
+    </data-sources>
+    <data-source-infos>
+      <data-source-info id="" persistence-unit-name="PersonForm" />
+    </data-source-infos>
+  </component>
+</project>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    form {
+      width: 100%;
+    }
+    table {
+      width: 100%;
+    }
+    td {
+      padding: 10px 0;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: calc(100% - 20px);
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    button[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .login-link a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    h2 {
+      text-align: center;
+      color: black; /* changed to black */
+      font-size: 28px; /* increased font size */
+      margin-bottom: 20px; /* added margin to bottom */
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+    <h2>User Registration</h2>
+    <form action="#" th:action="@{/}" th:object="${personForm}" method="post">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+                <td th:if="${#fields.hasErrors('name')}" class="error" th:errors="*{name}">Invalid name. Please enter a name between 2 and 30 characters.</td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" th:field="*{email}" /></td>
+                <td th:if="${#fields.hasErrors('email')}" class="error" th:errors="*{email}">Invalid email address. Please enter a valid email.</td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" th:field="*{password}" /></td>
+                <td th:if="${#fields.hasErrors('password')}" class="error" th:errors="*{password}">Invalid password. Please enter a password between 6 and 30 characters.</td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+    <div class="login-link">
+        <a href="/login">Already have an account? Login here</a>
+    </div>
+</div>
+</body>
+</html>
